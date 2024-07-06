@@ -211,5 +211,48 @@ namespace MyPhotos
 
             ImageBox.BackgroundImage = Picture;
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            for (int y = 0; y < Picture.Height; y++)
+            {
+                for (int x = 0; x < Picture.Width; x++)
+                {
+                    Color c = Picture.GetPixel(x, y);
+
+                    int nr = c.R ^ 0b11111111;
+                    int ng = c.G ^ 0b11111111;
+                    int nb = c.B ^ 0b11111111;
+
+                    Picture.SetPixel(x, y, Color.FromArgb(nr, ng, nb));
+                }
+            }
+
+            ImageBox.BackgroundImage = Picture;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            for (int y = 0; y < Picture.Height; y++)
+            {
+                for (int x = 0; x < Picture.Width; x++)
+                {
+                    Color c = Picture.GetPixel(x, y);
+
+                    int nr = c.R ^ 0b10101010;
+                    int ng = c.G ^ 0b01010101;
+                    int nb = c.B ^ 0b10101010;
+
+                    Picture.SetPixel(x, y, Color.FromArgb(nr, ng, nb));
+                }
+            }
+
+            ImageBox.BackgroundImage = Picture;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
